@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# Get a list of all network interfaces on the machine
+interfaces=$(ip -o link show | awk -F': ' '{print $2}')
+
+# Loop through each interface and get its IPv4 address (if it has one)
+for interface in $interfaces; do
+    ip_address=$(ip -4 -o addr show dev $interface | awk '{print $4}')
+    if [[ ! -z $ip_address ]]; then
+        echo "Interface $interface has IP address: $ip_address"
+    fi
+done
