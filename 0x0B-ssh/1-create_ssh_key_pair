@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
-# Creates RSA key pair
+# Generate RSA key pair
+openssl genrsa -aes256 -passout pass:betty -out school.key 4096
 
-ssh-keygen -b 4096 -f school -t rsa -N betty
+# Extract the public key from the private key
+openssl rsa -in school.key -passin pass:betty -pubout -out school.pub
+
+echo "RSA key pair generated successfully."
