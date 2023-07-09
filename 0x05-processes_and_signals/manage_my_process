@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Shell script writes "I am alive!"" to the file /tmp/my_process continuously
+
+while true
+do
+	echo "I am alive!" >> /tmp/my_process
+	sleep 2
+done

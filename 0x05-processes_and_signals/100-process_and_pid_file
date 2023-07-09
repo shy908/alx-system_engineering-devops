@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# This is a Shell Script that:
+# 1. Creates a file `/var/run/myscript.pid` containing its PID
+# 2. Displays "To  infinity and beyond" continuously
+# 3. On receiving a SIGTERM signal, display "I hate the kill command"
+# 4. On receiving a SIGINT signal, display Y U no love me?!
+# 5. On receiving a SIGQUIT/SIGTERM signal, delete `/var/run/myscript.pid` and terminate itself
+
+echo $$ >> /var/run/myscript.pid
+
+trap "echo 'I hate the kill command'; rm -rf /var/run/myscript.pid; exit" SIGTERM
+trap "echo 'Y U no love me?!'" SIGINT
+trap "rm -rf /var/run/holbertonscript.pid; exit" SIGQUIT
+
+while true
+do
+	echo 'To infinity and beyond'
+	sleep 2
+done
