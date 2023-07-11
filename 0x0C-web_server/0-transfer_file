@@ -7,9 +7,19 @@ if [ $# -lt 4 ]; then
   exit 1
 fi
 
-file_path="$1"
-server_ip="$2"
+#assign paramentals to variables
+path_to_file="$1"
+ip="$2"
 username="$3"
-ssh_key="$4"
+path_to_ssh_key="$4"
 
-scp -o StrictHostKeyChecking=no -i "$ssh_key" "$file_path" "$username@$server_ip:~/"
+#disabbling strict host key checking
+scp -o StrictHostKeyChecking=no -i "$path_to_ssh_key" "$path_to_file" "$username@$ip:~/"
+
+#checking if the tranfer was successful
+if [ $? -eq 0 ]
+then
+	echo"FILE WAS SUCCESSFULL TRANSFERRED"
+else
+	echo"something went wrong..."
+fi
