@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Bash scrip that connects a client to a server using SSH (Secured SHell)
+# You are to connect with the private key stored in ~/.ssh/school and user ubuntu
+
+ssh ubuntu -i ~/.ssh/school

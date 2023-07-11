@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Bash Script that creates am RSA key pair named school with 4096 bits
+#and protected with a passphrase of 'betty'
+ssh-keygen -t rsa -b 4096 -P betty -f school
