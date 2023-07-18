@@ -1,4 +1,6 @@
 #
+# /etc/ufw/before.rules
+#
 # rules.before
 #
 # Rules that should be run before the ufw command line added rules. Custom
@@ -7,10 +9,6 @@
 #   ufw-before-output
 #   ufw-before-forward
 #
-*nat
-: PREROUTING ACCEPT [0:0]
--A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
-COMMIT
 
 # Don't delete these required lines, otherwise there will be errors
 *filter
@@ -74,6 +72,12 @@ COMMIT
 # allow MULTICAST UPnP for service discovery (be sure the MULTICAST line above
 # is uncommented)
 -A ufw-before-input -p udp -d 239.255.255.250 --dport 1900 -j ACCEPT
+
+# Rules added to Allow for port forwarding from port 8080/TCP to port 80/TCP
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
+# End of my rule
 
 # don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
