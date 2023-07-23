@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Shell script that makes the localhost to listen on port 98 instead of 80
+nc -l localhost 98
