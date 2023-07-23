@@ -1,0 +1,3 @@
+This project aims to uncover the fascinating journey that takes place behind the scenes when a user types "google.com" in their web browser and presses the Enter key. We will delve into the step-by-step process, shedding light on how the Domain Name System (DNS) converts the human-readable domain name into an IP address, the establishment of a secure connection using HTTPS/SSL, load balancing, and the roles of web servers, application servers, and databases in serving the Google homepage to the user.
+
+By understanding the intricate workings of this fundamental action, we gain valuable insights into the complexities of internet infrastructure and the collaborative efforts that make accessing websites a seamless experience for users worldwide.
